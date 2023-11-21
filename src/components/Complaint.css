@@ -1,0 +1,202 @@
+
+/*complaint registration*/
+.outer-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  
+}
+.registration{
+  position:relative;
+    
+  color: black;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  background-color:#c1c8e9;
+    /*margin-top: 1 rem;*/
+}
+.registration header{
+  /*background-color: aquamarine;*/
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+.registration form{
+  /*background-color: #f54081;*/
+  position: relative;
+  margin-top: 16px;
+  min-height: 300px;
+  
+}
+.registration form .form-inside{
+  /*background-color: rgb(17, 138, 138);*/
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+form .form-inside .input-field{
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+  margin: 4px 0;
+  
+}
+form .form-inside .address{
+    width: 60%;
+    height: 22px;
+    padding:10px;
+    border-radius:10px;
+    border: 1px solid #eee;
+    transition: .3s border-color;
+}
+.input-field label{
+ 
+  color: #2e2e2e;
+}
+.data-field{
+  display: flex;
+  
+  flex-direction: row;
+}
+.label-1{
+  width: 150px;
+  color: #2e2e2e;
+  margin-bottom: 1rem;
+  
+}
+.label-2{
+ color: blue;
+}
+.register{
+  /*background-color:blue ;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  
+}
+
+/*complaint view*/
+
+.modal-container{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+
+
+.modal{
+   
+    
+  position:relative;
+    
+  color: black;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  background-color:#c1c8e9;
+  
+}
+
+.form-view{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 3 - 15px);
+  
+  margin: 4px 0;
+}
+
+.input-view{
+  display: flex;
+  flex-direction: row;
+}
+/*Utilities*/
+
+.utilities{
+    display: flex;
+    color: black;
+    
+    justify-content: center;
+    /*background-color: red;*/
+}
+
+
+
+.switch-div{
+    display: flex;
+    justify-content: center;
+    
+}
+.switch-a{
+   
+    color:blue;
+    border-bottom: 1px solid blue;
+    cursor: pointer;
+}
+.calculate{
+    background-color: #f54081 ;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    height: 2rem;
+    width: 4rem;
+    
+}
+
+  .type-1 {
+    width: 60%;
+    padding:10px;
+    border-radius:10px;
+    border: 1px solid #eee;
+    transition: .3s border-color;
+  }
+  .type-1:hover {
+    border: 1px solid #aaa;
+  }
+
+  
+  .add{
+    background-color: #c1c8e9;
+    border-radius: 5px;
+    min-width: max-content;
+    width: 40vmax;
+    margin: 20px auto;
+    padding: 20px;
+    /* height: 600px; */
+}
+
+  .innerbox{
+    
+    display: flex;
+    max-width: 60vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+@media (max-width: 600px) {
+    .innerbox {
+      width: 80vmax;
+    }
+  }
+
+.form-label{
+    
+    width: 60%;
+    margin: 10px;
+}
