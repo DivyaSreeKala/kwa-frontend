@@ -5,6 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #ebebeb;
   font-weight: 600;
+  overflow-x: hidden;
   /*background-color:#3f51b5;
   background-attachment: fixed; for blue background*/
 }

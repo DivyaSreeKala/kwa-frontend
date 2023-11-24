@@ -68,9 +68,9 @@
     min-width: auto;
     max-width:80%;/*800px*/
 
-    overflow: auto;
+    overflow-x: auto;
   
-    max-height: 100vh;
+    max-height: auto;
     
 }
 

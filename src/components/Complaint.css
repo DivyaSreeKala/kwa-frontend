@@ -29,6 +29,7 @@
   /*background-color: #f54081;*/
   position: relative;
   margin-top: 16px;
+  margin-bottom: 16px;
   min-height: 300px;
   
 }
@@ -156,7 +157,9 @@ form .form-inside .address{
     width: 4rem;
     
 }
-
+.save-close button{
+    margin-right: 1rem;
+}
   .type-1 {
     width: 60%;
     padding:10px;
