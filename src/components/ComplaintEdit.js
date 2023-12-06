@@ -64,8 +64,10 @@ function ComplaintEdit() {
         </div>
         <div className="input-field">
         <label>Attachment</label>
-        <input className='file-select' type='file' />
-        <a href='#' target='_blank'><FaFilePdf  style={{width:'1.6rem',height:'1.6rem'}} /></a><br/>
+        <input className='file-select' type='file' 
+         />
+          <a href={values.attachment_path} target='_blank'><FaFilePdf  style={{width:'1.6rem',height:'1.6rem'}} /></a>
+        <br/>
         </div>
         <div className="input-field">
         <label>Current Status</label>
