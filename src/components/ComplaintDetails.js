@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import "../App.css"
 import Axios from 'axios'
-import ComplaintEdit from './ComplaintEdit'
+
 import {BsFillTrashFill,BsFillPencilFill} from 'react-icons/bs'
 
-import {Link, Navigate, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 function ComplaintDetails() {
-  const [edit,setEdit]=useState(false);
+  //const [edit,setEdit]=useState(false);
   const [values,setValues]=useState([]);
  
-  const [cid,setCid]=useState('1234')
-  const [name,setName]=useState('nhcj')
-  const [complaint,setComplaint]=useState('')
-  const [status,setStatus]=useState('')
-  const [created,setCreated]=useState('')
-  const [updated,setUpdated]=useState('')
+ // const [cid,setCid]=useState('1234')
+  //const [name,setName]=useState('nhcj')
+  //const [complaint,setComplaint]=useState('')
+  //const [status,setStatus]=useState('')
+  //const [created,setCreated]=useState('')
+ // const [updated,setUpdated]=useState('')
   
+  const [deleterow,setDeleteRow]=useState(0)
   const navigate=useNavigate()
   
   const viewContent=(id)=>{
@@ -26,8 +27,26 @@ function ComplaintDetails() {
      
       navigate('/complaint-details/edit/'+id)
   }
-  const DeleteSelection=()=>{
-    window.confirm("do you want to delete it?")
+  const deleteSelection=(id)=>{
+    console.log(id)
+    if(window.confirm("do you want to delete it?")){
+    
+      Axios.delete('http://localhost:3002/api/v2/deleteComplaint/'+id,{
+
+    })
+    .then((res)=>{
+      console.log(res)
+      alert( res.data.message)
+      setDeleteRow(id)
+      //setValues({...values})
+      //window. location.reload(false);
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+    
+
+  }
   }
   useEffect(()=>{
     Axios.get('http://localhost:3002/api/v2/getAllComplaints',{
@@ -41,7 +60,7 @@ function ComplaintDetails() {
     .catch((error)=>{
       console.log(error)
     })
-  },[]);
+  },[deleterow]);//dependency values?? 
   return (
     <div className=" complaint-home" >
      
@@ -61,9 +80,10 @@ function ComplaintDetails() {
         <tbody>
           
          {
-            values.map((item,index)=>{
+            values.map((item)=>{
                 
-             return <tr>
+             return <tr key={item.id}>
+              
               <td>{item.consumer_id}</td>
               <td>{item.first_name}</td>
               <td>{item.complaint}</td>
@@ -75,7 +95,7 @@ function ComplaintDetails() {
               <span className='control-btns'>
               <button style={{backgroundColor:'blue',cursor:'pointer'}} onClick={()=>viewContent(item.id)}>View</button>
               <button style={{backgroundColor:"green",cursor:'pointer'}} onClick={()=>editContent(item.id)} >Edit</button>
-              <BsFillTrashFill style={{color:"#cc0000",cursor:'pointer'}} onClick={DeleteSelection}/>
+              <BsFillTrashFill style={{color:"#cc0000",cursor:'pointer'}} onClick={()=>deleteSelection(item.id)}/>
                </span>
                </td>
               </tr>

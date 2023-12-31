@@ -145,8 +145,10 @@ form .form-inside .address{
 .switch-a{
    
     color:blue;
+    border: none;
     border-bottom: 1px solid blue;
     cursor: pointer;
+    
 }
 .calculate{
     background-color: #f54081 ;
@@ -179,6 +181,8 @@ form .form-inside .address{
     width: 40vmax;
     margin: 20px auto;
     padding: 20px;
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     /* height: 600px; */
 }
 

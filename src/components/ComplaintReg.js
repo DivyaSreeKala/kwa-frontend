@@ -48,17 +48,6 @@ function ComplaintReg() {
     
     
   Axios.post('http://localhost:3002/api/v2/createComplaint',formData2
-  //{
-      //consumer_id:inputs['cid'],
-      //consumer_number:inputs['cno'],
-      //first_name:inputs['fname'],
-      //last_name:inputs['lname'],
-      //address:inputs['address'],
-      //mobile_number:inputs['mobile_no'],
-      //complaint:inputs['complaint'],
-      //attachment:inputs['attachment'],
-      //current_progress:inputs['c_status'],
-      //remarks:inputs['remarks'],},
     ,{headers:{
       'Content-Type':'multipart/form-data'} }
     ).then((response)=>{
@@ -91,7 +80,7 @@ function ComplaintReg() {
         <div className='form-inside' >
           <div className="input-field">
         <label>Consumer ID</label>
-        <input className='type-1' type='text' name='consumer_id' value={inputs.consumer_id} onChange={onInputChange} /><br/>
+        <input className='type-1' type='text' name='consumer_id' required onError={"enter valid"} value={inputs.consumer_id} onChange={onInputChange} /><br/>
         </div>
         <div className="input-field"> 
         <label>Consumer No.</label>
