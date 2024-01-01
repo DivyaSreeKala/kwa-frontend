@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import Login from './Login'
 import  Axios  from 'axios'
+import { api_route } from '../constants'
 function SignUp(props) {
     const [values,setValues]=useState({
         name:"",
@@ -17,7 +18,7 @@ function SignUp(props) {
     const onSignup=(e)=>{
         e.preventDefault()
         console.log(values)
-        Axios.post("http://localhost:3002/api/v2/createAdmin",values
+        Axios.post(api_route + "/createAdmin",values
         )
          .then((res)=>{
         //setValues(res.data)

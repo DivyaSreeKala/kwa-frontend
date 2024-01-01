@@ -5,6 +5,7 @@ import Axios from 'axios'
 import {BsFillTrashFill,BsFillPencilFill} from 'react-icons/bs'
 
 import {useNavigate} from 'react-router-dom'
+import { api_route } from '../constants'
 function ComplaintDetails() {
   //const [edit,setEdit]=useState(false);
   const [values,setValues]=useState([]);
@@ -31,7 +32,7 @@ function ComplaintDetails() {
     console.log(id)
     if(window.confirm("do you want to delete it?")){
     
-      Axios.delete('http://localhost:3002/api/v2/deleteComplaint/'+id,{
+      Axios.delete(api_route+ '/deleteComplaint/'+id,{
 
     })
     .then((res)=>{
@@ -48,9 +49,10 @@ function ComplaintDetails() {
 
   }
   }
-  useEffect(()=>{
-    Axios.get('http://localhost:3002/api/v2/getAllComplaints',{
 
+ 
+  useEffect(()=>{
+    Axios.get(api_route + '/getAllComplaints',{
     })
     .then((res)=>{
       setValues(res.data.complaints)
