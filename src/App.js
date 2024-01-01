@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import  Axios  from 'axios'; 
 import LoginSignup from './components/LoginSignup';
 import Layout from './components/Layout';
+import { api_route } from './constants';
 function App() {
   const [current,setCurrent]=useState('')
 
@@ -37,7 +38,7 @@ function App() {
       const tokenValue = getCookie('token');
       console.log('Token value:', tokenValue);*/
       
-      Axios.get('http://localhost:3002/api/v2/currentAdmin',{
+      Axios.get(api_route + '/currentAdmin',{
         withCredentials: true,
       })
       .then((res)=>{

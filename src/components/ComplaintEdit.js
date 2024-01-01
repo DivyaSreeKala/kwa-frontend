@@ -4,6 +4,7 @@ import '../App.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { FaFilePdf } from "react-icons/fa6";
 import  Axios  from 'axios';
+import { api_route } from '../constants';
 function ComplaintEdit() {
 
   const [inputs,setInputs]=useState({
@@ -22,7 +23,7 @@ function ComplaintEdit() {
   const {id}=useParams() 
   const [values,setValues]=useState({})
   useEffect(()=>{
-    Axios.get("http://localhost:3002/api/v2/getComplaintById/"+id,{
+    Axios.get(api_route+ "/getComplaintById/"+id,{
 
   })
   .then((res)=>{
@@ -67,7 +68,7 @@ function ComplaintEdit() {
     }
     
     
-  Axios.put('http://localhost:3002/api/v2/updateComplaint/'+id,formData2
+  Axios.put(api_route+ '/updateComplaint/'+id,formData2
   
     ,{headers:{
       'Content-Type':'multipart/form-data'} }

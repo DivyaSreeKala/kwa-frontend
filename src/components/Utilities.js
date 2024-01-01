@@ -3,6 +3,7 @@ import '../App.css'
 import './Complaint.css'
 import "./Modal.css"
 import  Axios  from 'axios'
+import { api_route } from '../constants'
 
 function Utilities() {
 
@@ -45,7 +46,7 @@ function Utilities() {
     e.preventDefault()
     console.log(inputs1)
 
-    Axios.post('http://localhost:3002/api/v2/leakageBenefits',inputs1
+    Axios.post(api_route + '/leakageBenefits',inputs1
     ,{headers:{
     'Content-Type':'application/json'} })
   .then((res)=>{
@@ -65,7 +66,7 @@ function Utilities() {
     e.preventDefault()
     //setInputs2(parseFloat(inputs2))
     //console.log(parseFloat(inputs2)
-    Axios.post("http://localhost:3002/api/v2/feeDetails",inputs2,
+    Axios.post(api_route + "/feeDetails",inputs2,
     {headers:{
       'Content-Type':'application/json'} })
   .then((res)=>{
