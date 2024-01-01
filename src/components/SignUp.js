@@ -17,7 +17,10 @@ function SignUp(props) {
     const onSignup=(e)=>{
         e.preventDefault()
         console.log(values)
-        Axios.post("http://localhost:3002/api/v2/createAdmin",values
+        Axios.post("http://localhost:3002/api/v2/createAdmin",values,
+        {
+          withCredentials: true,
+        }
         )
          .then((res)=>{
         //setValues(res.data)

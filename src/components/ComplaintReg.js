@@ -47,7 +47,10 @@ function ComplaintReg() {
     }
     
     
-  Axios.post('http://localhost:3002/api/v2/createComplaint',formData2
+  Axios.post('http://localhost:3002/api/v2/createComplaint',formData2,
+  {
+    withCredentials: true,
+  }
     ,{headers:{
       'Content-Type':'multipart/form-data'} }
     ).then((response)=>{

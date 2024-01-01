@@ -3,6 +3,7 @@ import '../App.css'
 import './Complaint.css'
 import "./Modal.css"
 import  Axios  from 'axios'
+import Layout from './Layout'
 
 function Utilities() {
 
@@ -45,7 +46,9 @@ function Utilities() {
     e.preventDefault()
     console.log(inputs1)
 
-    Axios.post('http://localhost:3002/api/v2/leakageBenefits',inputs1
+    Axios.post('http://localhost:3002/api/v2/leakageBenefits',inputs1,{
+      withCredentials: true,
+    }
     ,{headers:{
     'Content-Type':'application/json'} })
   .then((res)=>{
@@ -65,7 +68,9 @@ function Utilities() {
     e.preventDefault()
     //setInputs2(parseFloat(inputs2))
     //console.log(parseFloat(inputs2)
-    Axios.post("http://localhost:3002/api/v2/feeDetails",inputs2,
+    Axios.post("http://localhost:3002/api/v2/feeDetails",inputs2,{
+      withCredentials: true,
+    },
     {headers:{
       'Content-Type':'application/json'} })
   .then((res)=>{
@@ -106,6 +111,7 @@ function Utilities() {
   }
   return (
     <div>
+      
     <div className='utilities'>
       {utility ? 
       <div className='utility1'>
@@ -140,8 +146,9 @@ function Utilities() {
           }
         </div>
         {modal1 && (
+          
         <div className="modall">
-          <div onClick={onClickModal1} className="overlay"></div>
+          <div onClick={onClickModal1} className="overlays"></div>
           <div className="modal-content">
             <h2>Leakage Benefits</h2>
             <label className="form-label">Previous Reading : </label>
@@ -159,11 +166,13 @@ function Utilities() {
             </button>
           </div>
         </div>
+       
       )}
 
 {modal2 && (
+        
         <div className="modall">
-          <div onClick={onClickModal2} className="overlay"></div>
+          <div onClick={onClickModal2} className="overlays"></div>
           <div className="modal-content">
             <h2>Fee Details Calculaion</h2>
               <label className="form-label">Tendered Pac : </label>
@@ -185,6 +194,7 @@ function Utilities() {
             </button>
           </div>
         </div>
+      
       )}
         <div className='switch-div'>
         { utility ? <button className='switch-a' onClick={()=>{setUtility(!utility)}}>Utility2</button>

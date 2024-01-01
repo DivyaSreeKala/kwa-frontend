@@ -9,7 +9,7 @@ body.active-modal {
     font-size: 18px;
 }
 
-.modall, .overlay {
+.modall, .overlays {
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -19,7 +19,7 @@ body.active-modal {
     position: fixed;
 }
 
-.overlay {
+.overlays {
     background: rgba(49,49,49,0.8);
 }
 .modal-content {

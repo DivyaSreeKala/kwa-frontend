@@ -9,8 +9,8 @@ function ComplaintView() {
     
     useEffect(()=>{
       Axios.get("http://localhost:3002/api/v2/getComplaintById/"+id,{
-
-    })
+        withCredentials: true,
+      })
     .then((res)=>{
       setValues(res.data.complaint)
       

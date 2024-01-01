@@ -9,12 +9,13 @@ function Login(props) {
         password:""
     })
     const navigate=useNavigate()
+    const [errors, setErrors] = useState({});
     const onInputChange=(e)=>{
         setValues({...values,[e.target.name]:e.target.value})
       }
-      const [token,setToken]=useState(null)
+     // const [token,setToken]=useState(null)
      
-      const [current,setCurrent]=useState('')
+     // const [current,setCurrent]=useState('')
   
       useEffect(()=>{
         
@@ -24,14 +25,7 @@ function Login(props) {
         .then((res)=>{
           console.log(res)
           console.log(res.data.admin.role)
-          setCurrent(res.data.admin.role)
-          
-         // if (res.data.admin.role==='admin'){
-          //navigate('/dashboard')}
-          //else if (res.data.admin.role==='section-admin'){
-          //  navigate('/dashboard')//////////////////////////
-          //}
-
+          //setCurrent(res.data.admin.role)
         })
         .catch((error)=>{
           console.log(error)
@@ -41,7 +35,12 @@ function Login(props) {
     const onLogin=(e)=>{
         e.preventDefault()
         console.log(values)
-        
+        const validationErrors = validateForm(values);
+        if (Object.keys(validationErrors).length === 0) {
+          // Form is valid, proceed with submission or other actions
+          console.log('Form submitted:', values);
+
+
         Axios.post("http://localhost:3002/api/v2/loginAdmin",values
         , {
             withCredentials: true, // Enable sending and receiving cookies
@@ -51,7 +50,7 @@ function Login(props) {
       //const { token: newToken } = res.data;
       //setToken(newToken);
       props.setCurrent(res.data.user.role)
-      navigate('/dashboard')
+      //navigate('/dashboard')
       //console.log(res.data.user.role)
       //console.log(document.cookie)
       //const tokenCookie = document.cookie;
@@ -67,7 +66,34 @@ function Login(props) {
     .catch((error)=>{
       console.log(error)
     })
+        } else {
+          // Set validation errors to display to the user
+          setErrors(validationErrors);
+        }
+
     }
+    const validateForm = (data) => {
+      const errors = {};
+  
+      if (!data.email.trim()) {
+        errors.email = 'Email is required';
+      } else if (!isValidEmail(data.email)) {
+        errors.email = 'Invalid email format';
+      }
+      
+      if (!data.password.trim()) {
+        errors.password = 'Password is required';
+      } else if (data.password.length < 8) {
+        errors.password = 'Password must be at least 8 characters long';
+      }
+  
+      return errors;
+    }
+    const isValidEmail = (email) => {
+      // Basic email validation, replace with a more robust solution if needed
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
   return (
     <div>
         {props.toggle ? 
@@ -82,10 +108,12 @@ function Login(props) {
                 <div class="infield">
                     <input className='input1' type="email" placeholder="Email" name='email' value={values.email} onChange={onInputChange}/>
                     <label className='label1'></label>
+                    {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
                 </div>
                 <div className="infield">
                     <input type="password" className='input1' placeholder="Password" name='password' value={values.password} onChange={onInputChange}/>
                     <label className='label1'></label>
+                    {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
                 </div>
               
                 <button className='button1' onClick={onLogin}>Sign In</button>
