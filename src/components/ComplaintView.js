@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { FaFilePdf } from "react-icons/fa6";
 import Axios from 'axios'
+import { api_route } from '../constants';
 function ComplaintView() {
     const navigate=useNavigate()
     const {id}=useParams()
     const [values,setValues]=useState({})
     
     useEffect(()=>{
-      Axios.get("http://localhost:3002/api/v2/getComplaintById/"+id,{
-        withCredentials: true,
-      })
+      Axios.get(api_route + "/getComplaintById/"+id,{
+
+    })
     .then((res)=>{
       setValues(res.data.complaint)
       

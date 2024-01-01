@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Complaint.css'
 import '../App.css'
 import  Axios  from 'axios'
+import { api_route } from '../constants'
 function ComplaintReg() {
   const [inputs,setInputs]=useState({
     consumer_id:"",
@@ -47,10 +48,7 @@ function ComplaintReg() {
     }
     
     
-  Axios.post('http://localhost:3002/api/v2/createComplaint',formData2,
-  {
-    withCredentials: true,
-  }
+  Axios.post(api_route + '/createComplaint',formData2
     ,{headers:{
       'Content-Type':'multipart/form-data'} }
     ).then((response)=>{

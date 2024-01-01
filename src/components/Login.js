@@ -3,6 +3,7 @@ import './Login.css'
 import SignUp from './SignUp'
 import  Axios  from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { api_route } from '../constants'
 function Login(props) {
     const [values,setValues]=useState({
         email:"",
@@ -19,7 +20,7 @@ function Login(props) {
   
       useEffect(()=>{
         
-        Axios.get('http://localhost:3002/api/v2/currentAdmin',{
+        Axios.get(api_route + '/currentAdmin',{
           withCredentials: true,
         })
         .then((res)=>{
@@ -35,6 +36,7 @@ function Login(props) {
     const onLogin=(e)=>{
         e.preventDefault()
         console.log(values)
+<<<<<<< HEAD
         const validationErrors = validateForm(values);
         if (Object.keys(validationErrors).length === 0) {
           // Form is valid, proceed with submission or other actions
@@ -42,6 +44,10 @@ function Login(props) {
 
 
         Axios.post("http://localhost:3002/api/v2/loginAdmin",values
+=======
+        
+        Axios.post( api_route + "/loginAdmin",values
+>>>>>>> 3b7ab2676bf7add46e3fd9cb02035019a2078612
         , {
             withCredentials: true, // Enable sending and receiving cookies
           })
