@@ -48,7 +48,9 @@ function ComplaintReg() {
     }
     
     
-  Axios.post(api_route + '/createComplaint',formData2
+  Axios.post(api_route + '/createComplaint',formData2,{
+    withCredentials: true,
+  }
     ,{headers:{
       'Content-Type':'multipart/form-data'} }
     ).then((response)=>{

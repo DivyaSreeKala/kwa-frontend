@@ -3,11 +3,12 @@ import './Complaint.css'
 import './Sidebar.css'
 import  Axios  from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { api_route } from '../constants'
 function Logout() {
     const navigate=useNavigate()
     const onLogout=(e)=>{
       e.preventDefault()
-      Axios.get("http://localhost:3002/api/v2/logoutAdmin",
+      Axios.get(api_route+"logoutAdmin",
         {
           withCredentials: true,
         }

@@ -32,9 +32,9 @@ function ComplaintDetails() {
     console.log(id)
     if(window.confirm("do you want to delete it?")){
     
-      Axios.delete('http://localhost:3002/api/v2/deleteComplaint/'+id,{
-
-    })
+      Axios.delete(api_route+'/deleteComplaint/'+id,{
+        withCredentials: true,
+      })
     .then((res)=>{
       console.log(res)
       alert( res.data.message)
@@ -52,8 +52,8 @@ function ComplaintDetails() {
 
  
   useEffect(()=>{
-    Axios.get('http://localhost:3002/api/v2/getAllComplaints',{
-
+    Axios.get(api_route+'/getAllComplaints',{
+      withCredentials: true,
     })
     .then((res)=>{
       setValues(res.data.complaints)

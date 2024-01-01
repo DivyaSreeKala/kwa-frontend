@@ -36,18 +36,12 @@ function Login(props) {
     const onLogin=(e)=>{
         e.preventDefault()
         console.log(values)
-<<<<<<< HEAD
         const validationErrors = validateForm(values);
         if (Object.keys(validationErrors).length === 0) {
           // Form is valid, proceed with submission or other actions
           console.log('Form submitted:', values);
 
-
-        Axios.post("http://localhost:3002/api/v2/loginAdmin",values
-=======
-        
         Axios.post( api_route + "/loginAdmin",values
->>>>>>> 3b7ab2676bf7add46e3fd9cb02035019a2078612
         , {
             withCredentials: true, // Enable sending and receiving cookies
           })

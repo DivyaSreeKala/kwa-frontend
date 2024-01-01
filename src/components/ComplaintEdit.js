@@ -24,8 +24,8 @@ function ComplaintEdit() {
   const [values,setValues]=useState({})
   useEffect(()=>{
     Axios.get(api_route+ "/getComplaintById/"+id,{
-
-  })
+      withCredentials: true,
+    })
   .then((res)=>{
     setValues(res.data.complaint)
     
@@ -68,8 +68,10 @@ function ComplaintEdit() {
     }
     
     
-  Axios.put('http://localhost:3002/api/v2/updateComplaint/'+id,formData2
-  
+  Axios.put('http://localhost:3002/api/v2/updateComplaint/'+id,formData2,
+  {
+    withCredentials: true,
+  }
     ,{headers:{
       'Content-Type':'multipart/form-data'} }
     ).then((response)=>{

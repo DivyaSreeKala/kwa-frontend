@@ -46,7 +46,9 @@ function Utilities() {
     e.preventDefault()
     console.log(inputs1)
 
-    Axios.post(api_route + '/leakageBenefits',inputs1
+    Axios.post(api_route + '/leakageBenefits',inputs1,{
+      withCredentials: true,
+    }
     ,{headers:{
     'Content-Type':'application/json'} })
   .then((res)=>{
@@ -66,13 +68,9 @@ function Utilities() {
     e.preventDefault()
     //setInputs2(parseFloat(inputs2))
     //console.log(parseFloat(inputs2)
-<<<<<<< HEAD
-    Axios.post("http://localhost:3002/api/v2/feeDetails",inputs2,{
+    Axios.post(api_route + "/feeDetails",inputs2,{
       withCredentials: true,
     },
-=======
-    Axios.post(api_route + "/feeDetails",inputs2,
->>>>>>> 3b7ab2676bf7add46e3fd9cb02035019a2078612
     {headers:{
       'Content-Type':'application/json'} })
   .then((res)=>{
