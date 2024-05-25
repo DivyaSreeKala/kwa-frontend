@@ -147,3 +147,10 @@ th, td {
   min-width: 2.6rem;
   
 }
+
+.error-message{
+  font-size: x-small;
+  color: red;
+  font-family: sans-serif;
+  font-weight: lighter;
+}

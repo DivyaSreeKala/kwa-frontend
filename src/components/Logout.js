@@ -8,14 +8,15 @@ function Logout() {
     const navigate=useNavigate()
     const onLogout=(e)=>{
       e.preventDefault()
-      Axios.get(api_route+"logoutAdmin",
+      Axios.get(api_route+"/logoutAdmin",
         {
           withCredentials: true,
         }
         )
          .then((res)=>{
         //setValues(res.data)
-          navigate('/')
+          navigate('/login-signup')
+          window.location.reload(false)
          console.log(res.data)
          })
         .catch((error)=>{

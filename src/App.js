@@ -56,28 +56,27 @@ function App() {
     <div>
       <Router>
         <Routes>
-        <Route exact path='/'  element={ document.cookie && current==='admin' ? <Navigate to="/dashboard" /> : <LoginSignup setCurrent={setCurrent}/> } />
+        <Route exact path='/'  element={ document.cookie && current==='admin' ? <Navigate to="/dashboard" /> : <Navigate to="/login-signup" />} />
+        <Route exact path='/login-signup'  element={ document.cookie && current==='admin' ? <Navigate to="/dashboard" /> :  <LoginSignup setCurrent={setCurrent} />} />  
         
-        
-        <Route exact path='/dashboard'  element={ document.cookie && current==='admin' ? <Layout/> : <Navigate to="/" />}  />
+        <Route exact path='/dashboard'  element={ document.cookie && current==='admin' ? <Layout/> : <Navigate to="/login-signup" />}  />
 
-              <Route exact path='/complaint-details'  element={ document.cookie && current==='admin' ? <Layout><ComplaintDetails/></Layout> : <Navigate to="/" />} />
-                <Route exact path='/complaint-details/edit/:id' element={document.cookie && current==='admin' ? <Layout><ComplaintEdit/></Layout> : <Navigate to="/" />}/>
-                <Route exact path='/complaint-details/view/:id' element={document.cookie && current==='admin' ? <Layout><ComplaintView/></Layout> : <Navigate to="/" />} />
+              <Route exact path='/complaint-details'  element={ document.cookie && current==='admin' ? <Layout><ComplaintDetails/></Layout> : <Navigate to="/login-signup" />} />
+                <Route exact path='/complaint-details/edit/:id' element={document.cookie && current==='admin' ? <Layout><ComplaintEdit/></Layout> : <Navigate to="/login-signup" />}/>
+                <Route exact path='/complaint-details/view/:id' element={document.cookie && current==='admin' ? <Layout><ComplaintView/></Layout> : <Navigate to="/login-signup" />} />
               
-              <Route exact path='/new-complaint' element={document.cookie && current==='admin' ? <Layout><ComplaintReg/></Layout> : <Navigate to="/" />}/>
-              <Route exact path='/utilities' element={document.cookie && current==='admin' ? <Layout><Utilities/></Layout> : <Navigate to="/" />}/>
-          
+              <Route exact path='/new-complaint' element={document.cookie && current==='admin' ? <Layout><ComplaintReg/></Layout> : <Navigate to="/login-signup" />}/>
+              <Route exact path='/utilities' element={document.cookie && current==='admin' ? <Layout><Utilities/></Layout> : <Navigate to="/login-signup" />}/>
+                     
+              <Route exact path='/login-signup'  element={ document.cookie && current==='section-admin' ? <Navigate to="/dashboard" /> : <Navigate to="/login-signup" />} />
+           <Route exact path='/dashboard'  element={document.cookie && current==='section-admin' ? <Layout/> : <Navigate to="/login-signup" />}  />
 
-           <Route exact path='/dashboard'  element={document.cookie && current==='section-admin' ? <Layout/> : <Navigate to="/" />}  />
-
-              <Route exact path='/complaint-details'  element={ document.cookie && current==='section-admin' ? <Layout><ComplaintDetails/></Layout> : <Navigate to="/" />} />
-                <Route exact path='/complaint-details/edit/:id' element={document.cookie && current==='section-admin' ? <Layout><ComplaintEdit/></Layout> : <Navigate to="/" />}/>
-                <Route exact path='/complaint-details/view/:id' element={document.cookie && current==='section-admin' ? <Layout><ComplaintView/></Layout> : <Navigate to="/" />} />
+              <Route exact path='/complaint-details'  element={ document.cookie && current==='section-admin' ? <Layout><ComplaintDetails/></Layout> : <Navigate to="/login-signup" />} />
+                <Route exact path='/complaint-details/edit/:id' element={document.cookie && current==='section-admin' ? <Layout><ComplaintEdit/></Layout> : <Navigate to="/login-signup" />}/>
+                <Route exact path='/complaint-details/view/:id' element={document.cookie && current==='section-admin' ? <Layout><ComplaintView/></Layout> : <Navigate to="/login-signup" />} />
               
-              <Route exact path='/new-complaint' element={document.cookie && current==='section-admin' ? <Layout><ComplaintReg/></Layout> : <Navigate to="/" />}/>
-              <Route exact path='/utilities' element={document.cookie && current==='section-admin' ? <Layout><Utilities/></Layout> : <Navigate to="/" />}/>
-          
+              <Route exact path='/new-complaint' element={document.cookie && current==='section-admin' ? <Layout><ComplaintReg/></Layout> : <Navigate to="/login-signup" />}/>
+              <Route exact path='/utilities' element={document.cookie && current==='section-admin' ? <Layout><Utilities/></Layout> : <Navigate to="/login-signup" />}/>
           
         
         </Routes>
